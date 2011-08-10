@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "jsort"
   gem.homepage = "http://github.com/iboard/jsort"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{sort lists with drag & drop without coding a single line of Javascript by yourself}
+  gem.description = %Q{Write a controller-method to do the sort and call jsort-helper in your view.}
   gem.email = "andi@iboard.cc"
   gem.authors = ["Andi Altendorfer"]
   # dependencies defined in Gemfile
