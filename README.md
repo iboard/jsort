@@ -20,6 +20,7 @@ Usage
        m.position = idx
        m.save
      end
+     render :nothing => true
   end
 ```
 
@@ -40,6 +41,7 @@ Installation
 ------------
 
  * Rails 3.1:
+   * Add `gem "jsort", "~> 0.0.1"` to your Gemfile
    * Add this line to your application.js-template: `//= require jsort_sortable`
  * Rails < 3.1:
    * A generator will be provided soon. At the moment you have to copy the jsort_sortable.js to your javascript-directory and you have to include it in your layout manually.
