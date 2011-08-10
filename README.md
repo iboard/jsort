@@ -15,17 +15,34 @@ Usage
 
 ```
   def sort
-     dome code here
+     params[:ordered_items].each_with_index do |id,idx|
+       m = MyModel.find(id)
+       m.position = idx
+       m.save
+     end
   end
 ```
 
-**View**
+**View** (HAML; obviously, will work with html.erb too)
 
 ```
-  jsort(@items,'people',sort_people_path)
+  - jsort(@my_items,'ordered_items', sort_my_controller_path) do |item|
+    = item.name
+    = link_to "[Edit]", edit_my_item_path(item)
 ```
 
+This will display an ordered list which is sortable by drag and drop.
+The block passed to jsort will be used to format each line. If no block is
+given item.to_s will be used to display the items.
 
+
+Installation
+------------
+
+ * Rails 3.1:
+   * Add this line to your application.js-template: `//= require jsort_sortable`
+ * Rails < 3.1:
+   * A generator will be provided soon. At the moment you have to copy the jsort_sortable.js to your javascript-directory and you have to include it in your layout manually.
 
 
 Contributing to jsort
