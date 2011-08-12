@@ -14,22 +14,22 @@ Usage
 **Controller**
 
 
-    `def sort`
-    `   params[:ordered_items].each_with_index do |id,idx|`
-    `     m = MyModel.find(id)`
-    `     m.position = idx`
-    `     m.save`
-    `   end`
-    `   render :nothing => true`
-    `end`
+    def sort
+       params[:ordered_items].each_with_index do |id,idx|
+         m = MyModel.find(id)
+         m.position = idx
+         m.save
+       end
+       render :nothing => true
+    end
 
 
 **View** (HAML; obviously, will work with html.erb too)
 
 
-    `- jsort(@my_items,'ordered_items', sort_my_controller_path) do |item|`
-    `  = item.name                                                        `
-    `  = link_to "[Edit]", edit_my_item_path(item)                        `
+    - jsort(@my_items,'ordered_items', sort_my_controller_path) do |item|
+      = item.name
+      = link_to "[Edit]", edit_my_item_path(item)
 
 _Parameters_
 

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andi Altendorfer"]
-  s.date = %q{2011-08-11}
+  s.date = %q{2011-08-12}
   s.description = %q{Write a controller-method to do the sort and call jsort-helper in your view.}
   s.email = %q{andi@iboard.cc}
   s.extra_rdoc_files = [
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "jsort.gemspec",
     "lib/generators/jsort/install/install_generator.rb",
     "lib/jsort.rb",
     "lib/jsort/rails.rb",
