@@ -13,28 +13,42 @@ Usage
 
 **Controller**
 
-```
-  def sort
-     params[:ordered_items].each_with_index do |id,idx|
-       m = MyModel.find(id)
-       m.position = idx
-       m.save
-     end
-     render :nothing => true
-  end
-```
+
+    `def sort`
+    `   params[:ordered_items].each_with_index do |id,idx|`
+    `     m = MyModel.find(id)`
+    `     m.position = idx`
+    `     m.save`
+    `   end`
+    `   render :nothing => true`
+    `end`
+
 
 **View** (HAML; obviously, will work with html.erb too)
 
-```
-  - jsort(@my_items,'ordered_items', sort_my_controller_path) do |item|
-    = item.name
-    = link_to "[Edit]", edit_my_item_path(item)
-```
+
+    `- jsort(@my_items,'ordered_items', sort_my_controller_path) do |item|`
+    `  = item.name                                                        `
+    `  = link_to "[Edit]", edit_my_item_path(item)                        `
+
+_Parameters_
+
+  `jsort ITEMS, NAME, PATH, [OPTIONS]`
+  
+  * *ITEMS* - a collection of items to sort. If an item provides a method/field positon, the items will be sorted
+  * *NAME* - The div-id of the list. This will be the key of `params[:NAME]` passed to the controller.
+  * *PATH* - path or url to the controller/action where the script will post to.
+  * *OPTIONS* - Opional you may provide the following options:
+  
+  `:text => 'MOVE` - Will use this text as a drag-n-drop-handle instead of the image
+  `:image => 'yourimage.jpg'` - use your own image (place it in assets/images path of your application
+  `:handle_only => true` - Only the handle (image or text) can be used to drag&move. Default is 'false' which allows you to pick up by clicking anywhere on the line.
+  
+
 
 This will display an ordered list which is sortable by drag and drop.
-The block passed to jsort will be used to format each line. If no block is
-given item.to_s will be used to display the items.
+The block passed to jsort will be used to format each line/item. If no block is
+given `item.to_s` will be used to display the items.
 
 
 Installation

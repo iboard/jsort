@@ -3,6 +3,20 @@ require "jsort/rails"
 module ActionView
   module Helpers
     module FormHelper
+      
+      
+      
+      # Renders an ordered list of items and register the javascript-call for drag-n-sort
+      # 
+      # @param [Enumerate] items - The collection of items to sort
+      # @param [String] name - The name of the div-tag and key of the params for the controller
+      # @param [String] path - The path or url to post against (The sort-method in your controller)
+      # @param [Hash] options - Options used to format the lines of items
+      #
+      # Options:
+      #   * `:text => 'click here to sort'` - Will use this text as a drag-n-drop-handle instead of the image
+      #   * `:image => 'yourimage.jpg'` - use your own image (place it in assets/images path of your application
+      #   * `:handle_only => true` - Only the handle (image or text) can be used to drag&move. Default is 'false' which allows you to pick up by clicking anywhere on the line.
       def jsort(items,name,path,options={},&block)
         
         defaults = {
