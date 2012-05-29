@@ -39,10 +39,10 @@ _Parameters_
   * *NAME* - The div-id of the list. This will be the key of `params[:NAME]` passed to the controller.
   * *PATH* - path or url to the controller/action where the script will post to.
   * *OPTIONS* - Opional you may provide the following options:
-  
-  `:text => 'MOVE` - Will use this text as a drag-n-drop-handle instead of the image
-  `:image => 'yourimage.jpg'` - use your own image (place it in assets/images path of your application
-  `:handle_only => true` - Only the handle (image or text) can be used to drag&move. Default is 'false' which allows you to pick up by clicking anywhere on the line.
+    * `:text => 'MOVE` - Will use this text as a drag-n-drop-handle instead of the image
+    * `:image => 'yourimage.jpg'` - use your own image (place it in assets/images path of your application
+    * `:handle_only => true` - Only the handle (image or text) can be used to drag&move. Default is 'false' which allows you to pick up by clicking anywhere on the line.
+    * `:register => false` - no call to `registerSortableList($('#list-id')` will be implemented and you have to call the register-function in your own code (eg. coffee-script). Use this strategie if you're using Twitter-Bootstrap and loading the application.js at the end of your layout-file
   
 
 
