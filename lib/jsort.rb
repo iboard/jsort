@@ -24,7 +24,8 @@ module ActionView
           :handle_only => false,
           :image => 'sortable_vertical.png',
           :text => nil,
-          :div_type => ['ol',nil,'li']
+          :div_type => ['ol',nil,'li'],
+          :register => true
         }
         defaults.merge!(options)
         concat("<#{defaults[:div_type][0]} id='#{name.pluralize}' path='#{path}'>".html_safe)
@@ -61,7 +62,9 @@ module ActionView
           concat("</#{defaults[:div_type][1]}>") unless defaults[:div_type][1].nil?
         end
         concat("</#{defaults[:div_type][0]}>".html_safe)
-        concat(javascript_tag( "registerSortableList($('##{name.pluralize}'));"))
+        if defaults[:register]
+          concat(javascript_tag( "registerSortableList($('##{name.pluralize}'));"))
+        end
       end
     end
   end

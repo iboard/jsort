@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{jsort}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andi Altendorfer"]
-  s.date = %q{2011-08-12}
+  s.date = %q{2012-05-29}
   s.description = %q{Write a controller-method to do the sort and call jsort-helper in your view.}
   s.email = %q{andi@iboard.cc}
   s.extra_rdoc_files = [
