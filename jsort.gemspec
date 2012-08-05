@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{jsort}
+  s.name = "jsort"
   s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andi Altendorfer"]
-  s.date = %q{2012-05-29}
-  s.description = %q{Write a controller-method to do the sort and call jsort-helper in your view.}
-  s.email = %q{andi@iboard.cc}
+  s.date = "2012-08-05"
+  s.description = "Write a controller-method to do the sort and call jsort-helper in your view."
+  s.email = "andi@iboard.cc"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -34,11 +34,11 @@ Gem::Specification.new do |s|
     "vendor/assets/images/sortable_vertical.png",
     "vendor/assets/javascripts/jsort_sortable.js"
   ]
-  s.homepage = %q{http://github.com/iboard/jsort}
+  s.homepage = "http://github.com/iboard/jsort"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{sort lists with drag & drop without coding a single line of Javascript by yourself}
+  s.rubygems_version = "1.8.15"
+  s.summary = "sort lists with drag & drop without coding a single line of Javascript by yourself"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
