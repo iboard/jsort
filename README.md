@@ -43,6 +43,7 @@ _Parameters_
     * `:image => 'yourimage.jpg'` - use your own image (place it in assets/images path of your application
     * `:handle_only => true` - Only the handle (image or text) can be used to drag&move. Default is 'false' which allows you to pick up by clicking anywhere on the line.
     * `:register => false` - no call to `registerSortableList($('#list-id')` will be implemented and you have to call the register-function in your own code (eg. coffee-script). Use this strategie if you're using Twitter-Bootstrap and loading the application.js at the end of your layout-file
+    * `:sortable_id => :id` - default's to :id.
   
 
 

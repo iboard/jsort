@@ -18,6 +18,7 @@ module ActionView
       #   * `:image => 'yourimage.jpg'` - use your own image (place it in assets/images path of your application
       #   * `:handle_only => true` - Only the handle (image or text) can be used to drag&move. Default is 'false' which allows you to pick up by clicking anywhere on the line.
       #   * `:div_type => ['table','tr','td'] or ['ol',nil,'li'], ....
+      #   * `:sortable_id => :id  (The field used as css-id)
       def jsort(items,name,path,options={},&block)
         
         defaults = {
@@ -25,7 +26,8 @@ module ActionView
           :image => 'sortable_vertical.png',
           :text => nil,
           :div_type => ['ol',nil,'li'],
-          :register => true
+          :register => true,
+          :sortable_id => :id
         }
         defaults.merge!(options)
         concat("<#{defaults[:div_type][0]} id='#{name.pluralize}' path='#{path}'>".html_safe)
@@ -38,7 +40,7 @@ module ActionView
         
         for item in sorted_items
           concat("<#{defaults[:div_type][1]}>") unless defaults[:div_type][1].nil?
-          concat("<#{defaults[:div_type][2]} class='#{name}_sort_entry' id='#{name}_#{item.to_param}'>".html_safe)
+          concat("<#{defaults[:div_type][2]} class='#{name}_sort_entry' id='#{name}_#{get_sortable_id(item, defaults[:sortable_id])}'>".html_safe)
           concat("<span class='handle'>".html_safe)
           if options[:text]
             concat(options[:text] + " ")
@@ -65,6 +67,10 @@ module ActionView
         if defaults[:register]
           concat(javascript_tag( "registerSortableList($('##{name.pluralize}'));"))
         end
+      end
+
+      def get_sortable_id(item,field)
+        item.send(field)
       end
     end
   end
